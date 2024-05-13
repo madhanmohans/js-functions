@@ -17,11 +17,12 @@ Array.prototype.customMap = function (callbackFn) {
 The filter() function is used to create a new array with all 
 elements that pass the test implemented by the provided function.
 */
-function customFilter(arr, callbackFn) {
+
+Array.prototype.customFilter = function (callbackFn) {
     const filteredArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        if(callbackFn(arr[i], i, arr)) {
-            filteredArr.push(arr[i]);
+    for (let i = 0; i < this.length; i++) {
+        if(callbackFn(this[i], i, this)) {
+            filteredArr.push(this[i]);
         }
     }
     return filteredArr;
