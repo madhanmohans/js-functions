@@ -19,4 +19,16 @@ describe("Custom Functions", () => {
         const customReduceResult = array.customReduce((acc, subArr) => acc.concat(subArr), []);
         expect(reduceResult).toEqual(customReduceResult);
     });
+    test("Compare forEach and customForEach functions", () => {
+        const array = [5, 4, 3, 2, 1];
+        const forEachResult = [];
+        const customForEachResult = [];
+        array.forEach((num) => {
+            forEachResult.push(num);
+        });
+        array.customForEach((num) => {
+            customForEachResult.push(num);
+        });
+        expect(forEachResult).toEqual(customForEachResult);
+    })
 })
