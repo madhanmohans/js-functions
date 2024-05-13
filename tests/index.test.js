@@ -12,5 +12,11 @@ describe("Custom Functions", () => {
         const filterResult = array.filter((num) => num % 2 != 0);
         const customFilterResult = array.customFilter((num) => num % 2 != 0);
         expect(filterResult).toEqual(customFilterResult);
-    })
+    });
+    test("Compare reduce and customReduce functions", () => {
+        const array = [[1, 2], [3, 4], [5, 6]];
+        const reduceResult = array.reduce((acc, subArr) => acc.concat(subArr), []);
+        const customReduceResult = array.customReduce((acc, subArr) => acc.concat(subArr), []);
+        expect(reduceResult).toEqual(customReduceResult);
+    });
 })

@@ -27,3 +27,11 @@ Array.prototype.customFilter = function (callbackFn) {
     }
     return filteredArr;
 }
+
+Array.prototype.customReduce = function (callbackFn, initialValue) {
+    let accumulator = initialValue !== undefined ? initialValue : this[0];
+    for(let i = initialValue !== undefined? 0: 1; i < this.length; i++) {
+        accumulator = callbackFn(accumulator, this[i], i, this);
+    }
+    return accumulator;
+}
