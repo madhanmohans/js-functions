@@ -5,17 +5,13 @@ It creates a new array with the transformed elements,
 while leaving the original array unchanged.
 */
 
-function customMap(arr, callbackFn) {
+Array.prototype.customMap = function (callbackFn) {
     const newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        newArr.push(callbackFn(arr[i], i, arr));
+    for (let i = 0; i < this.length; i++) {
+        newArr.push(callbackFn(this[i], i, this));
     }
     return newArr;
-}
-
-const numbers = [5, 4, 3, 2, 1];
-const doubledNumbers = customMap(numbers, (num) => num * 2);
-console.log(doubledNumbers)
+};
 
 /*
 The filter() function is used to create a new array with all 
@@ -30,6 +26,3 @@ function customFilter(arr, callbackFn) {
     }
     return filteredArr;
 }
-
-const oddNumbers = customFilter(numbers, (num) => num % 2 != 0);
-console.log(oddNumbers);
